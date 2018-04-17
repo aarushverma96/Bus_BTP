@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customer Info</title>
+</head>
+
+<body>
+	<form method='POST' action={% url 'customer'  %}>
+		<input type="text" name="ticket_id">
+		<input type="name" name="customer_name">
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>

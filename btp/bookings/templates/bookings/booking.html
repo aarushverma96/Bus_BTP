@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bus Booking</title>
+</head>
+<body>
+	
+	{{book.bus_id}}<br>
+	Booked Seats {{book.booked_seats}}<br>
+	Available seats {{book.available_seats}}<br>
+
+	<form method="POST" , action={% url  'booking' book.bus_id %}>
+		{% csrf_token %}
+		<label>Selected Number of Seats</label>
+		<input type="text" name="seats">
+		<button type="submit">Submit</button>
+	</form>
+
+</body>
+</html>

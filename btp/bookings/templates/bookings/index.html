@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> BUSES</title>
+</head>
+<body>
+
+	{% for bus in buses %}
+		<a href={% url 'booking' bus.bus_id %}>{{ bus.bus_id }}</a><br>
+		{{ bus.source }}<br>
+		{{ bus.destination }}<br>
+		{{ bus.arrival }}<br>
+		{{ bus.departure }}<br>-------------------<br>
+	{% endfor %}
+</body>
+</html>
