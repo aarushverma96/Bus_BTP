@@ -19,11 +19,16 @@ Backend for Bus booking system in Django
 
 ## REST API
 1. Accessing Bus Information 
-`127.0.0.1:8000/jbuses/<source>/<destination>`
+`127.0.0.1:8000/jbuses/<source>/<destination>`<br>
 	<b>Examples</b>
 	`http://127.0.0.1:8000/JP/DLE`
 
 2. Acessing status information
-`http://127.0.0.1:8000/jstsus/<busID>`
+`http://127.0.0.1:8000/jstsus/<busID>`<br>
 	<b>Example</b>
 	`http://127.0.0.1:8000/123`
+
+## Application 
+1. Search Functionality
+	`127.0.0.1:8000/search/`
+2. Then follow the flow of application.
