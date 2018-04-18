@@ -18,4 +18,12 @@ Backend for Bus booking system in Django
 `python manage.py createsuperuser`
 
 ## REST API
-1.) 
+1. Accessing Bus Information 
+`127.0.0.1:8000/jbuses/<source>/<destination>`
+	<b>Examples</b>
+	`http://127.0.0.1:8000/JP/DLE`
+
+2. Acessing status information
+`http://127.0.0.1:8000/jstsus/<busID>`
+	<b>Example</b>
+	`http://127.0.0.1:8000/123`
