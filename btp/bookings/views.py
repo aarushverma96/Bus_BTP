@@ -2,10 +2,17 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
+from rest_framework.response import Response
 from bookings.models import *
 from bookings.serializers import *
 from django.shortcuts import render,redirect
 from django.shortcuts import get_object_or_404
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework import permissions
+
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -66,6 +73,17 @@ def booking(request,gbusId):
 		book.save()
 
 		#return redirect(customer, seats=selected_seats)
-		return render(request,'bookings/sucess.html')
+		return redirect(customer, seats=selected_seats)
 
-
+@csrf_exempt
+@api_view(['PUT'])
+@permission_classes((permissions.AllowAny,))
+def test(request,gbusId):
+	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+	if request.method=='PUT':
+		book=Status(bus_id=gbusId)
+		st=StatusSerializer(book, data=request.data)
+		if st.is_valid():
+			st.save()
+			return Response(st.data)
+		return Response(st.errors,status=status.HTTP_400_BAD_REQUEST)
