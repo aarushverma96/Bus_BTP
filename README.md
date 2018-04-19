@@ -24,9 +24,13 @@ Backend for Bus booking system in Django
 	`http://127.0.0.1:8000/JP/DLE`
 
 2. Acessing status information
-`http://127.0.0.1:8000/jstsus/<busID>`<br>
+`http://127.0.0.1:8000/jstaus/<busID>`<br>
 	<b>Example</b>
 	`http://127.0.0.1:8000/123`
+
+3. PUT request 
+	view name: test
+	`url : http://127.0.0.1:8000/test/<bus_id>`
 
 ## Application 
 1. Search Functionality
