@@ -1,6 +1,6 @@
 from django.db import models
 
-
+from django.core.validators import validate_comma_separated_integer_list
 
 # Create your models here.
 
@@ -18,8 +18,7 @@ class BusInfo(models.Model):
 class Status(models.Model):
 	
 	bus_id=models.IntegerField(default=123)
-	booked_seats = models.IntegerField(default=0)
-	available_seats = models.IntegerField(default=40)
+	seats=models.CharField(validators=[validate_comma_separated_integer_list],max_length=200,default='a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a')
 	
 	def __str__(self):
 		return str(self.bus_id)

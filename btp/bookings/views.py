@@ -55,25 +55,38 @@ def customer(request,seats):
 		cust.save()
 
 		return render(request,'bookings/sucess.html')
+		
 	
 
 def booking(request,gbusId):
 	book=Status.objects.get(bus_id=gbusId)
-	prevAvail=book.available_seats
-	prevBooked=book.booked_seats
+	prevStatus=book.seats
 
 	if request.method=='GET':
 		
 		return render(request, 'bookings/booking.html',{'book':book})
 	else:
 		selected_seats=request.POST.get("seats")
-		book.available_seats=prevAvail-int(selected_seats)
-		book.booked_seats=prevBooked+int(selected_seats)
+		print(selected_seats)
+		temp1=list(selected_seats.split(','))
+		print(temp1)
+		temp2=list(prevStatus.split(','))
+		print(temp2)
 
+		for i in temp1:
+			temp2[int(i)-1]='b'
+
+		#print(temp2)
+		prevStatus=','.join(temp2)
+		#print(prevStatus)
+		book.seats=prevStatus
+
+		#book.seats
+		#print (prevStatus)
 		book.save()
 
 		#return redirect(customer, seats=selected_seats)
-		return redirect(customer, seats=selected_seats)
+		return render(request,'bookings/sucess.html')
 
 @csrf_exempt
 @api_view(['PUT'])

@@ -6,13 +6,13 @@
 <body>
 	
 	{{book.bus_id}}<br>
-	Booked Seats {{book.booked_seats}}<br>
-	Available seats {{book.available_seats}}<br>
+	Seats structure {{book.seats}}<br>
+	<br>
 
 	<form method="POST" , action={% url  'booking' book.bus_id %}>
 		{% csrf_token %}
 		<label>Selected Number of Seats</label>
-		<input type="text" name="seats">
+		<input type="text-area" name="seats">
 		<button type="submit">Submit</button>
 	</form>
 
