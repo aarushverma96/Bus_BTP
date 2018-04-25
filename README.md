@@ -36,3 +36,8 @@ Backend for Bus booking system in Django
 1. Search Functionality
 	`127.0.0.1:8000/search/`
 2. Then follow the flow of application.
+
+## Seat Structure changes
+1. Models.py change in line #21 -- values are stored in CSV format
+2. Views.py changes in function booking -- starting line# 61
+3. To book enter seats in CSV format in `booking/<busid>` url
