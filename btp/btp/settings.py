@@ -27,6 +27,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+#Email Settings
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'aarushverma96@gmail.com'
+EMAIL_HOST_PASSWORD = '9782752748123'
+EMAIL_PORT = 587
 
 # Application definition
 

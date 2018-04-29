@@ -11,5 +11,7 @@ urlpatterns = [
 	url(r'search', views.search),
 	url(r'customer/(?P<seats>[0-9][\w-]+)$', views.customer, name='customer'),
 	url(r'test/(?P<gbusId>[0-9][\w-]+)$', csrf_exempt(views.test)),
+	url(r'mail$', views.mail),
+	url(r'delete/(?P<gbusId>[0-9][\w-]+)$',  csrf_exempt(views.delete) ,name='delete'),
 
 ]

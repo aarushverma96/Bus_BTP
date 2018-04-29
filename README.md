@@ -41,3 +41,15 @@ Backend for Bus booking system in Django
 1. Models.py change in line #21 -- values are stored in CSV format
 2. Views.py changes in function booking -- starting line# 61
 3. To book enter seats in CSV format in `booking/<busid>` url
+
+## Delete Reserved seats 
+1. PUT request
+2. URL format `127.0.0.1:8000/delete/<busid>`
+3. Data format <br>
+`
+{
+	'bus_id':'123'
+	'seats': '1,2,3,4'
+}`
+4. Function will return seat updated seat stucture
+

@@ -11,7 +11,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
-
+from django.core.mail import send_mail
+import json
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -100,3 +101,43 @@ def test(request,gbusId):
 			st.save()
 			return Response(st.data)
 		return Response(st.errors,status=status.HTTP_400_BAD_REQUEST)
+
+
+def mail(request,gticket_id,gbus_id):
+
+	cust=Customer(ticket_id=gticket_id)
+	bus=BusInfo(bus_id=gbus_id)
+
+	send_mail(
+	'Booking Details',
+	'Hello your booking is confirmed',
+	'aarushverma96@gmail.com',
+	['15ucs003@lnmiit.ac.in'],
+	
+	)
+
+	return render(request,'bookings/sucess.html')
+
+
+@csrf_exempt
+@api_view(['PUT'])
+@permission_classes((permissions.AllowAny,))
+def delete(request,gbusId):
+	if request.method=='PUT':
+		st=Status.objects.get(bus_id=gbusId)
+		prevStatus=st.seats
+		tempo=prevStatus.split(',')
+		data=request.data
+		
+		temp=data['seats'].split(',')
+		
+		for i in temp:
+			tempo[int(i)-1]='a'
+
+
+		updatedStatus=','.join(tempo)
+		st.seats=updatedStatus
+		
+		st.save()
+		return Response(st.seats)
+		#return Response(st.errors,status=status.HTTP_400_BAD_REQUEST)
