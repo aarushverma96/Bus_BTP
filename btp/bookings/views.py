@@ -103,7 +103,7 @@ def test(request,gbusId):
 		return Response(st.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
-def mail(request,gticket_id,gbus_id):
+def mail(request):
 
 	cust=Customer(ticket_id=gticket_id)
 	bus=BusInfo(bus_id=gbus_id)

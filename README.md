@@ -53,3 +53,18 @@ Backend for Bus booking system in Django
 }`
 4. Function will return seat updated seat stucture
 
+## Send Mail 
+1. Hit url `127.0.0.1:8000/mail`
+
+## Changes
+1. Views.py Mail function form line #106
+2. Views.py delete function form line #122
+3. Urls.py changes in line #14 and 15
+4. changes in settings.py
+ `EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'aarushverma96@gmail.com'
+EMAIL_HOST_PASSWORD = '9782752748123'
+EMAIL_PORT = 587`
+5. use email and password of your gmail account (account form which you want to send mail)
+
