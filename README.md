@@ -64,7 +64,7 @@ Backend for Bus booking system in Django
  `EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'aarushverma96@gmail.com'
-EMAIL_HOST_PASSWORD = '9782752748123'
+EMAIL_HOST_PASSWORD = 'password'
 EMAIL_PORT = 587`
 5. use email and password of your gmail account (account form which you want to send mail)
 
