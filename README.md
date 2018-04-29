@@ -48,7 +48,7 @@ Backend for Bus booking system in Django
 3. Data format <br>
 `
 {
-	'bus_id':'123'
+	'bus_id': 123
 	'seats': '1,2,3,4'
 }`
 4. Function will return seat updated seat stucture
